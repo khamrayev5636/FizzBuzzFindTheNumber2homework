@@ -59,8 +59,10 @@ elFormFind.addEventListener("submit" , e => {
     elNumber.textContent = `Urinishlar soni: ${maxAttemp}`
     
     const elInputFindValue = Number(elInputFind.value);
-    
-    if(elInputFindValue > x){
+
+    if(elInputFindValue > 100){
+        alert("Siz (1-100) oraligidan katta son kiritdiz.Qaytadan son kiriting!!")
+    }else if(elInputFindValue > x){
         elWin.textContent = "Random sondan katta son kiritdiz."
         elWin.classList.add("bg-danger");
     }else if(elInputFindValue < x){
@@ -77,7 +79,7 @@ elFormFind.addEventListener("submit" , e => {
         elWin.classList.remove("bg-primary");
         elWin.classList.remove("bg-danger");
     }
-    
+
     if(maxAttemp == 0){
         elInputFind.setAttribute("disabled" , true);
         elBtnFind.setAttribute("disabled" , true);
