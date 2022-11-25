@@ -1,0 +1,7 @@
+.alert-find {
+    display: none;
+}
+
+.alert-find--js{
+    display: block;
+}
