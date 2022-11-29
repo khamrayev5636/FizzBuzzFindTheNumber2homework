@@ -59,9 +59,9 @@ elFormFind.addEventListener("submit" , e => {
     elNumber.textContent = `Urinishlar soni: ${maxAttemp}`
     
     const elInputFindValue = Number(elInputFind.value);
-
+    
     if(elInputFindValue > 100){
-        alert("Siz (1-100) oraligidan katta son kiritdiz.Qaytadan son kiriting!!")
+        alert("Siz (1-100) oraligidan katta son kiritdiz va urinishlar soniz kamayib boradi.Qaytadan son kiriting!!")
     }else if(elInputFindValue > x){
         elWin.textContent = "Random sondan katta son kiritdiz."
         elWin.classList.add("bg-danger");
@@ -69,7 +69,7 @@ elFormFind.addEventListener("submit" , e => {
         elWin.textContent = "Random sondan kichik son kiritdiz."
         elWin.classList.remove("bg-danger");
         elWin.classList.add("bg-primary");
-    }else if(elInputFindValue === x){
+    }else{
         elWin.textContent = "Urra siz sonni topdingiz😎😊"
         elAlertFind.textContent = `Siz izlagan son: ${x}`
         elAlertFind.classList.add("alert-find--js");
@@ -79,16 +79,27 @@ elFormFind.addEventListener("submit" , e => {
         elWin.classList.remove("bg-primary");
         elWin.classList.remove("bg-danger");
     }
-
-    if(maxAttemp == 0){
+    
+    if(maxAttemp == 0 && elInputFindValue == x){
         elInputFind.setAttribute("disabled" , true);
         elBtnFind.setAttribute("disabled" , true);
         elAlertFind.textContent = `Siz izlagan son: ${x}`
         elAlertFind.classList.add("alert-find--js");
-        elNumber.textContent = "Urinishlar soni tugadi:"
+        elNumber.textContent = "Urinishlar soni tugadi:";
+        elWin.textContent = "Urra siz sonni topdingiz😎😊";
+        elWin.classList.add("bg-success");
+        elNumber.classList.add("bg-danger", "text-white");
+    }else if(maxAttemp == 0){
+        elInputFind.setAttribute("disabled" , true);
+        elBtnFind.setAttribute("disabled" , true);
+        elAlertFind.textContent = `Siz izlagan son: ${x}`
+        elAlertFind.classList.add("alert-find--js");
+        elNumber.textContent = "Urinishlar soni tugadi:";
+        elWin.textContent = "Siz Yutqazdingiz!😥";
+        elWin.classList.add("bg-danger");
         elNumber.classList.add("bg-danger", "text-white");
     }
-
+    
     elInputFind.value = "";
     
 })
